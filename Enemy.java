@@ -7,15 +7,9 @@ public class Enemy
 	private double height;			//height of the enemy paddle
 	private String colour = "RED";	//colour of the enemy paddle
 	private int difficulty;
-	private int hsp = 0;
 	private int vsp = 0;
 	
 	Rectangle badPaddle = new Rectangle(560, 240, 5, 20, "RED");
-	
-	xPosition = badPaddle.getXPosition();
-	yPosition = badPaddle.getYPosition();
-	width = badPaddle.getWidth();
-	height = badPaddle.getHeight();
 	
 	public void setXPosition(double x)
 	{
@@ -27,28 +21,40 @@ public class Enemy
 		badPaddle.setXPosition(y);
 	}
 	
+	public double getXPosition()
+	{
+		return xPosition;
+	}
+	
+	public double getYPosition()
+	{
+		return yPosition;
+	}
+	
 	public Enemy(int diff)
 	{
 		difficulty = diff;
+		xPosition = badPaddle.getXPosition();
+		yPosition = badPaddle.getYPosition();
+		width = badPaddle.getWidth();
+		height = badPaddle.getHeight();
+		
 	}
 	
 	
-	while (true)
+	public void enemyMove(double ballY)
 	{
-		myGameArena.pause();
-		hsp = 0;
 		vsp = 0;
 		
-		if (myBall.getYPosition() > yPosition)
+		if (ballY > yPosition)
 		{
-			vsp = 1;
+			vsp = (1 + difficulty);
 		}
-		if (myBall.getYPosition() < yPosition)
+		if (ballY < yPosition)
 		{
-			vsp = -1;
+			vsp = (-1 - difficulty);
 		}
 		
-		setXPosition(xPosition + hsp);
 		setYPosition(yPosition + vsp);
 		
 	}
