@@ -15,7 +15,7 @@ public class Driver
 			myGameArena.pause();
 			double ballYPosition = myBall.getYPosition();
 			badPaddle.enemyMove(ballYPosition);
-			//
+			
 		}
 	}
 }
