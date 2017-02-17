@@ -81,7 +81,6 @@ public class Ball
 	{
 		xPosition = x;
 		yPosition = y;
-
 		size = diameter;
 		colour = col;
 	}	

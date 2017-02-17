@@ -322,44 +322,6 @@ public class GameArena
 		}
 	}
 	
-	public void addEnemy(Rectangle r)
-	{
-		synchronized (this)
-		{
-			if (objectCount > MAXIMUM_OBJECTS)
-			{
-				System.out.println("\n\n");
-				System.out.println(" ********************************************************* ");
-				System.out.println(" ***** Only 100000 Objects Supported per Game Arena! ***** ");
-				System.out.println(" ********************************************************* ");
-				System.out.println("\n");
-				System.out.println("-- Joe\n\n");
-
-                System.exit(0);
-			}
-
-            // Add this ball to the draw list. Initially, with a null JavaFX entry, which we'll fill in later to avoid cross-thread operations...
-            removeList.remove(r);
-            addList.add(r);
-            objectCount++;
-		}
-	}
-
-	/**
-	 * Remove a Rectangle from the GameArena. 
-	 * Once a Rectangle is removed, it will no longer appear on the window. 
-	 *
-	 * @param r the rectangle to remove from the GameArena.
-	 */
-	public void removeEnemy(Rectangle r)
-	{
-		synchronized (this)
-		{
-            addList.remove(r);
-            removeList.add(r);
-            objectCount--;
-		}
-	}
 
 	/**
 	 * Pause for a 1/50 of a second. 
