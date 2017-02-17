@@ -8,6 +8,7 @@ public class Driver
 		//default points value
 		double enemyPoints = 0;
 		double playerPoints = 0;
+		int reset = 0;
 		
 		//default speeds
 		double vspEnemy = 0;
@@ -85,19 +86,21 @@ public class Driver
 			
 			if (ballX <= 0)
 			{
+				reset = 1;
 				enemyPoints++;
-				myGameArena.removeBall(myBall);
-				myGameArena.addBall(myBall);
+				myBall.setXPosition(300);
+				myBall.setYPosition(240);
 				vspBall = 2;
 				hspBall = 2;
 			}
 			else if (ballX >= 600)
 			{
+				reset = 1;
 				playerPoints++;
-				myGameArena.removeBall(myBall);
-				myGameArena.addBall(myBall);
-				vspBall = 2;
-				hspBall = 2;
+				myBall.setXPosition(300);
+				myBall.setYPosition(240);
+				vspBall = -2;
+				hspBall = -2;
 			}
 			
 			//check for collisions between the ball and player/enemy paddles
@@ -123,8 +126,16 @@ public class Driver
 			//Moving all the objects
 			badPaddle.setYPosition(badPaddleY + vspEnemy);
 			player.setYPosition(playerY + vspPlayer);
-			myBall.setYPosition(ballY + vspBall);
-			myBall.setXPosition(ballX + hspBall);
+			
+			if (reset == 0)
+			{
+				myBall.setYPosition(ballY + vspBall);
+				myBall.setXPosition(ballX + hspBall);
+			}
+			else if (reset == 1)
+			{
+				reset = 0;
+			}
 			
 		}
 	}
