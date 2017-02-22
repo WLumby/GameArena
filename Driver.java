@@ -119,14 +119,14 @@ public class Driver
 			Rectangle e = badPaddle;
 			Rectangle r = player;
 			
-			if (b.getXPosition() - 5 < e.getXPosition() + e.getWidth() &&
-			b.getXPosition() + b.getSize() * 2 > e.getXPosition() - 5 &&
-			b.getYPosition() - 5 < e.getYPosition() + e.getHeight() &&
-			b.getYPosition() + b.getSize() * 2 > e.getYPosition() - 5)
+			if (b.getXPosition() - 2 < e.getXPosition() + e.getWidth() &&
+			b.getXPosition() + b.getSize() * 2 > e.getXPosition() - 2 &&
+			b.getYPosition() - 2 < e.getYPosition() + e.getHeight() &&
+			b.getYPosition() + b.getSize() * 2 > e.getYPosition() - 2)
 			{
 				hspBall = randomH * -1;
 			}
-			else if (b.getXPosition() < r.getXPosition() + r.getWidth() + 5 &&
+			else if (b.getXPosition() - 5 < r.getXPosition() + r.getWidth() &&
 			b.getXPosition() + b.getSize() * 2 > r.getXPosition() - 5 &&
 			b.getYPosition() - 5 < r.getYPosition() + r.getHeight() &&
 			b.getYPosition() + b.getSize() * 2 > r.getYPosition() - 5)
