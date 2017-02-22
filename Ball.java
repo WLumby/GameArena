@@ -75,6 +75,11 @@ public class Ball
 	{
 		return colour;
 	}
+	
+	public void setColour(String s)
+	{
+		this.colour = s;
+	}
 
 
 	public Ball(double x, double y, double diameter, String col)

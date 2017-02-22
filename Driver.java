@@ -97,6 +97,14 @@ public class Driver
 			{
 				reset = 1;
 				enemyPoints++;
+				if (enemyPoints > playerPoints)
+				{
+					myBall.setColour("RED");
+				}
+				else if (enemyPoints == playerPoints)
+				{
+					myBall.setColour("WHITE");
+				}
 				System.out.println(playerPoints + "-" + enemyPoints);
 				myBall.setXPosition(300);
 				myBall.setYPosition(240);
@@ -107,6 +115,14 @@ public class Driver
 			{
 				reset = 1;
 				playerPoints++;
+				if (playerPoints > enemyPoints)
+				{
+					myBall.setColour("BLUE");
+				}
+				else if (enemyPoints == playerPoints)
+				{
+					myBall.setColour("WHITE");
+				}
 				System.out.println(playerPoints + "-" + enemyPoints);
 				myBall.setXPosition(300);
 				myBall.setYPosition(240);
