@@ -134,7 +134,7 @@ public class Driver
 				hspBall = randomH;
 			}
 		
-			//Moving all the objects
+			//Moving all the objects and re-randomizing the direction of the ball
 			badPaddle.setYPosition(badPaddleY + vspEnemy);
 			player.setYPosition(playerY + vspPlayer);
 			
@@ -142,6 +142,8 @@ public class Driver
 			{
 				myBall.setYPosition(ballY + vspBall);
 				myBall.setXPosition(ballX + hspBall);
+				randomV = vertSp.nextDouble()*(2.5 - 1.5) + 1.5;
+				randomH = horizSp.nextDouble()*(2.5 - 1.5) + 1.5;
 			}
 			else if (reset == 1)
 			{
