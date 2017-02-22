@@ -1,20 +1,29 @@
+import java.util.*;
+
 public class Driver
 {
 	public static void main(String[] args)
 	{
 		//difficulty increases the speed at which the enemy paddle moves
-		double difficulty = 0.5;
+		double difficulty = 1.0;
 		
 		//default points value
-		double enemyPoints = 0;
-		double playerPoints = 0;
+		int enemyPoints = 0;
+		int playerPoints = 0;
 		int reset = 0;
+
+		//making the random speed/direction of the ball
+		Random vertSp = new Random();
+		double randomV = vertSp.nextDouble()*(2.5 - 1.5) + 1.5;
+		
+		Random horizSp = new Random();
+		double randomH = horizSp.nextDouble()*(2.5 - 1.5) + 1.5;
 		
 		//default speeds
 		double vspEnemy = 0;
 		double vspPlayer = 0;
-		double vspBall = 2;
-		double hspBall = 2;
+		double vspBall = randomV;
+		double hspBall = randomH;
 		
 		//declare co-ordinate tracking variables
 		double ballY;
@@ -77,30 +86,32 @@ public class Driver
 			//detecting if the ball has hit the edge
 			if (ballY >= 480)
 			{
-				vspBall = -2;
+				vspBall = randomV * -1;
 			}
 			else if (ballY <= 0)
 			{
-				vspBall = 2;
+				vspBall = randomV;
 			}
 			
 			if (ballX <= 0)
 			{
 				reset = 1;
 				enemyPoints++;
+				System.out.println(playerPoints + "-" + enemyPoints);
 				myBall.setXPosition(300);
 				myBall.setYPosition(240);
-				vspBall = 2;
-				hspBall = 2;
+				vspBall = randomV;
+				hspBall = randomH;
 			}
 			else if (ballX >= 600)
 			{
 				reset = 1;
 				playerPoints++;
+				System.out.println(playerPoints + "-" + enemyPoints);
 				myBall.setXPosition(300);
 				myBall.setYPosition(240);
-				vspBall = -2;
-				hspBall = -2;
+				vspBall = randomV * -1;
+				hspBall = randomH * -1;
 			}
 			
 			//check for collisions between the ball and player/enemy paddles
@@ -113,14 +124,14 @@ public class Driver
 			b.getYPosition() < e.getYPosition() + e.getHeight() &&
 			b.getYPosition() + b.getSize() * 2 > e.getYPosition())
 			{
-				hspBall = -2;
+				hspBall = randomH * -1;
 			}
 			else if (b.getXPosition() < r.getXPosition() + r.getWidth() &&
 			b.getXPosition() + b.getSize() * 2 > r.getXPosition() &&
 			b.getYPosition() < r.getYPosition() + r.getHeight() &&
 			b.getYPosition() + b.getSize() * 2 > r.getYPosition())
 			{
-				hspBall = 2;
+				hspBall = randomH;
 			}
 		
 			//Moving all the objects
@@ -135,8 +146,7 @@ public class Driver
 			else if (reset == 1)
 			{
 				reset = 0;
-			}
-			
+			}			
 		}
 	}
 	
