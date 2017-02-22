@@ -126,7 +126,7 @@ public class Driver
 			{
 				hspBall = randomH * -1;
 			}
-			else if (b.getXPosition() - 5 < r.getXPosition() + r.getWidth() &&
+			else if (b.getXPosition() < r.getXPosition() + r.getWidth() + 5 &&
 			b.getXPosition() + b.getSize() * 2 > r.getXPosition() - 5 &&
 			b.getYPosition() - 5 < r.getYPosition() + r.getHeight() &&
 			b.getYPosition() + b.getSize() * 2 > r.getYPosition() - 5)
