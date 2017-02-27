@@ -34,6 +34,9 @@ public class Driver
 		//Create the game arena
 		GameArena myGameArena = new GameArena(600, 480);
 		
+		//Create the score counter
+		Score myScoreCounter = new Score(myGameArena);
+		
 		//Create a dividing line in the middle of the arena
 		Rectangle dividingLine = new Rectangle(300, 240, 2.5, 480, "WHITE");
 		myGameArena.addRectangle(dividingLine);
@@ -133,6 +136,9 @@ public class Driver
 				vspBall = randomV * -1;
 				hspBall = randomH * -1;
 			}
+			
+			//Send score to Score class
+			myScoreCounter.updateScore(playerPoints, enemyPoints);
 			
 			//check for collisions between the ball and player/enemy paddles
 			Ball b = myBall;
