@@ -34,6 +34,10 @@ public class Driver
 		//Create the game arena
 		GameArena myGameArena = new GameArena(600, 480);
 		
+		//Create a dividing line in the middle of the arena
+		Rectangle dividingLine = new Rectangle(300, 240, 2.5, 480, "WHITE");
+		myGameArena.addRectangle(dividingLine);
+		
 		//Create the enemy paddle and add it to the arena
 		Rectangle badPaddle = new Rectangle(560, 240, 5, 40, "RED");
 		myGameArena.addRectangle(badPaddle);
